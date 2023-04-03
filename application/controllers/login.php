@@ -1,6 +1,5 @@
 <?php
- include '../database/UserLogin.php';
- require 'login.php';
+ require_once "./vendor/autoload.php";
  $loginObj = new UserLogin;
 
  if(isset($_POST["login"])) {
@@ -8,11 +7,13 @@
     if($temp == TRUE){
         session_start();
         $_SESSION["logged"] = TRUE;
-        header("location: ../assignment5/index.php");
+        header("location: /home");
     }
     else {
         $_SESSION["loginMessage"] = "Invalid username and password";
-        header("location:login.php");
+        header("location:login");
     }
  }
+ require_once "./application/views/loginView.php";
 ?>
+

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Database - Contains all the methods which has to interact with the database
  * like insert,update,delete operations in the database.
@@ -19,6 +18,15 @@
  *  
  * @method updateUserPassword()
  *  Helps to update user password and that change will reflect in the database.
+ * 
+ * @method getAppItems()
+ *  Fetches all the applications present in the database.
+ * 
+ * @method insertAdminApp()
+ *  Stores the applications in the database from the admin side.
+ * 
+ * @method downloadApp()
+ *  Fetches the impormation of downloaded app to show in the my apps page.
  */
 
 class Database extends mysqli {
@@ -28,8 +36,8 @@ class Database extends mysqli {
    */
   public function __construct() {
     //For getting the configuration details of database.
-    include "config.php";
-    $this->conn = new mysqli(hostName, user,password,databaseName);
+    include "./config/config.php";
+    $this->conn = new mysqli(hostName,user,password,databaseName);
   }
   
   /**
@@ -100,12 +108,6 @@ class Database extends mysqli {
       return false;
     }
   }
-
- 
-  public function updateUserPassword(string $password, string $email) {
-    $sql = "update userInfo set password = '$password' where email = '$email';";
-    $this->conn->query($sql);
-  }
   /**
    * This method fetches all the apps present in the admin database.
    * 
@@ -115,5 +117,39 @@ class Database extends mysqli {
     $sql = "select * from apps";
     return ($this->conn->query($sql)->fetch_all(MYSQLI_ASSOC));
   }
+  /**
+   * This method helps to launch new app in the database from the admin side.
+   * 
+   * @param string $appName
+   *  This variable stores the newly launched app name.
+   * @param string $description
+   *  This variable stores the description of the app.
+   * @param string $image
+   *  This variable stores the path of the image.
+   * @param string $developer
+   * Stores the developer name.
+   * @param string $review
+   *  Stores the review of a perticular application.
+   * @param string $file
+   *  Stores the filename in .apk format.
+   * @parwam string $id
+   * Stores the id of a application.
+   * 
+   * @return void 
+   */
+  public function insertAdminApp(string $appName, string $description,string $image,string $developer,string $review,string $file,int $id) {
+    $sql = "INSERT INTO apps (app_name,Descroption,Image,Developer,review,file,id)
+    VALUES ('$appName','$description','$image','$developer','$review','$file',$id);";
+    $this->conn->query($sql);
+  }
+  /**
+   * This method fetches the impormation of downloaded application.
+   * 
+   * @param int $appId
+   *  Stores the application id.
+   */
+  public function downloadApp(int $appId){
+    $sql = "select * from apps where id = $appId;";
+    return ($this->conn->query($sql)->fetch_all(MYSQLI_ASSOC));
+  }
 }
-

@@ -1,5 +1,4 @@
 <?php
-
 class UserRegistration
 { 
   public $passwordErr = "";
@@ -39,6 +38,3 @@ class UserRegistration
       return TRUE;
   }
 }
-
-
-

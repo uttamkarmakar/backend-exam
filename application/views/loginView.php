@@ -20,7 +20,7 @@
   <div class="container my-3">
     <div class="login-main">
       <div class="login-main--container container-shrimp">
-        <form method="post" action="login-validate.php">
+        <form method="post" action="login">
         <?php
               // echo $_SESSION["loginMessage"];
               // unset($_SESSION["loginMessage"]);

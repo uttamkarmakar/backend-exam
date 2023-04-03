@@ -10,8 +10,9 @@ nav {
   align-items: center;
   /* position: fixed; */
   margin: 0 auto;
-  background-color: grey;
+  background-color: blueviolet;
   width: 100%;
+  height: 90px;
 }
 
 .logo {
@@ -770,3 +771,4 @@ a {
 #final {
   display: none;
 }
+

@@ -14,10 +14,7 @@
 </head>
 
 <body>
-  <video id="bgVideo" autoplay loop muted plays-inline>
-    <source src="../video/night-sky.mp4">
-  </video>
-  <form class="" action="" method="post">
+  <form class="" action="/signup" method="post">
     <div class="container my-3">
       <h2>Create an account with us</h2>
       <div class="form-group">
@@ -37,28 +34,23 @@
         <label for="exampleInputPassword1">Confirm password</label>
         <br><input type="text" class="form-control" id="cpass" placeholder="Password" name="cpassword">
         <p id="conpass"></p>
-        <!-- <span id="cpassSpan"></span> -->
       </div>
       <?php
-      require "registerNow.php";
       if (isset($_SESSION['fromMessage']))
        { ?>
         <p class="error">
           <?php
           echo $_SESSION['fromMessage']; ?></p>
       <?php
-        //On reload error should not be displayed on screen.
         unset($_SESSION['fromMessage']);
       }
       ?>
-
       <button type="submit" class="btn btn-success" name="submit" id=submit-btn>Submit</button>
       <a href="login.php" type="submit" class="btn btn-success" name="submit">Back to login in</a>
     </div>
     </div>
   </form>
   </div>
-
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

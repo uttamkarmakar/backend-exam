@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Validations - Contains all the validation parts like username validation,email
  * validation,profile picture validation,password validations etc.
@@ -141,3 +140,4 @@ class Validations {
   }
 }
 ?>
+

@@ -1,8 +1,7 @@
 <?php
-session_start();
-require '../database/UserRegistration.php';
-require '../validations.php';
-$registerObj = new UserRegistration;
+  session_start();
+  require_once "./vendor/autoload.php";
+  $registerObj = new UserRegistration;
 
 if(isset($_POST["submit"])) {
 
@@ -24,3 +23,4 @@ if(isset($_POST["submit"])) {
     $_SESSION["fromMessage"] = $result;
   }
 }
+require_once "./application/views/signupView.php";

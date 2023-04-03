@@ -1,0 +1,16 @@
+{
+    "name": "uttam/app-store",
+    "autoload": {
+        "classmap": [
+            "application/models/database/Database.php",
+            "application/models/User/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "uttamkarmakar",
+            "email": "uttam.karmakar@innoraft.com"
+        }
+    ],
+    "require": {}
+}
